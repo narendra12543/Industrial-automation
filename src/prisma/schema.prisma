@@ -1,0 +1,201 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  name      String     @db.VarChar(150)
+  email     String     @unique @db.VarChar(255)
+  mobile    String     @unique @db.VarChar(20)
+  password  String
+  role      Role       @default(USER)
+  isActive  Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  downloads Download[]
+  enquiries Enquiry[]
+
+  @@index([email])
+  @@index([mobile])
+  @@index([role])
+  @@index([isActive])
+  @@map("users")
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique @db.VarChar(150)
+  slug        String    @unique @db.VarChar(180)
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  isActive    Boolean   @default(true)
+  products    Product[]
+
+  @@index([slug])
+  @@index([name])
+  @@index([isActive])
+  @@map("categories")
+}
+
+model Product {
+  id               String         @id @default(cuid())
+  categoryId       String
+  name             String         @db.VarChar(255)
+  slug             String         @unique @db.VarChar(255)
+  shortDescription String?        @db.VarChar(500)
+  description      String?
+  specifications   Json?
+  features         Json?
+  applications     Json?
+  brochureUrl      String?
+  datasheetUrl     String?
+  featured         Boolean        @default(false)
+  isActive         Boolean        @default(true)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  brochureFile     String?
+  datasheetFile    String?
+  downloads        Download[]
+  enquiries        Enquiry[]
+  images           ProductImage[]
+  category         Category       @relation(fields: [categoryId], references: [id])
+
+  @@index([categoryId])
+  @@index([slug])
+  @@index([featured])
+  @@index([isActive])
+  @@index([name])
+  @@map("products")
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  imageUrl  String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  altText   String?  @db.VarChar(255)
+  isPrimary Boolean  @default(false)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([sortOrder])
+  @@index([isPrimary])
+  @@map("product_images")
+}
+
+model Enquiry {
+  id        String        @id @default(cuid())
+  userId    String?
+  productId String
+  name      String        @db.VarChar(150)
+  email     String        @db.VarChar(255)
+  mobile    String        @db.VarChar(20)
+  quantity  Int           @default(1)
+  city      String?       @db.VarChar(150)
+  message   String?
+  status    EnquiryStatus @default(NEW)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  product   Product       @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User?         @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([productId])
+  @@index([status])
+  @@index([email])
+  @@index([mobile])
+  @@index([createdAt])
+  @@map("enquiries")
+}
+
+model Download {
+  id        String       @id @default(cuid())
+  userId    String
+  productId String
+  type      DownloadType
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  product   Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([productId])
+  @@index([type])
+  @@index([createdAt])
+  @@map("downloads")
+}
+
+model Project {
+  id            String         @id @default(cuid())
+  title         String         @db.VarChar(255)
+  slug          String         @unique @db.VarChar(255)
+  description   String?
+  clientName    String?        @db.VarChar(255)
+  location      String?        @db.VarChar(255)
+  completedDate DateTime?
+  isFeatured    Boolean        @default(false)
+  isActive      Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  images        ProjectImage[]
+
+  @@index([slug])
+  @@index([isFeatured])
+  @@index([isActive])
+  @@index([completedDate])
+  @@map("projects")
+}
+
+model ProjectImage {
+  id        String   @id @default(cuid())
+  projectId String
+  imageUrl  String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+  @@index([sortOrder])
+  @@map("project_images")
+}
+
+model ContactMessage {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  mobile      String
+  companyName String?
+  city        String?
+  message     String
+  createdAt   DateTime @default(now())
+
+  @@map("contact_messages")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  QUOTATION_SENT
+  NEGOTIATION
+  WON
+  LOST
+}
+
+enum DownloadType {
+  BROCHURE
+  DATASHEET
+}

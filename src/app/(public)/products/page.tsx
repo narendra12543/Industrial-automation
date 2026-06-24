@@ -1,0 +1,79 @@
+import { Metadata } from "next";
+
+import { prisma } from "@/lib/prisma";
+
+import ProductsHero from "@/components/public/products/ProductsHero";
+import FeaturedProductsStrip from "@/components/public/products/FeaturedProductsStrip";
+import ProductsCatalog from "@/components/public/products/ProductsCatalog";
+import ProductsCTA from "@/components/public/products/ProductsCTA";
+
+export const metadata: Metadata = {
+  title: "Industrial Automation Products",
+  description:
+    "Explore our complete range of industrial automation products and solutions.",
+};
+
+export default async function ProductsPage() {
+  const products =
+    await prisma.product.findMany({
+      where: {
+        isActive: true,
+      },
+
+      include: {
+        category: true,
+        images: true,
+      },
+
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+  const categoriesData =
+    await prisma.category.findMany({
+      orderBy: {
+        name: "asc",
+      },
+    });
+
+  const categories =
+    categoriesData.map(
+      (category) => category.name
+    );
+
+  const featuredProducts =
+    products.filter(
+      (product) =>
+        product.featured === true
+    );
+
+  return (
+    <>
+      <ProductsHero
+        totalProducts={
+          products.length
+        }
+        totalCategories={
+          categories.length
+        }
+        featuredProducts={
+          featuredProducts.length
+        }
+      />
+
+      {/* <FeaturedProductsStrip
+        products={
+          featuredProducts
+        }
+      /> */}
+
+      <ProductsCatalog
+        products={products}
+        categories={categories}
+      />
+
+      <ProductsCTA />
+    </>
+  );
+} 
