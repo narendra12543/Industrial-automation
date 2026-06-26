@@ -6,8 +6,6 @@ import AboutIndustries from "@/components/public/about/AboutIndustries";
 import AboutProcess from "@/components/public/about/AboutProcess";
 import CompanyValues from "@/components/public/about/CompanyValues";
 
-import CTASection from "@/components/public/home/CTASection";
-// import ContactStrip from "@/components/public/home/ContactStrip";
 
 export default function AboutPage() {
   return (
@@ -25,8 +23,6 @@ export default function AboutPage() {
       <AboutProcess />
 
       <CompanyValues />
-
-      <CTASection />
 
       {/* <ContactStrip /> */}
     </>

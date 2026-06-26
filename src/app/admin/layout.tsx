@@ -62,15 +62,7 @@ export default async function AdminLayout({
                     </p>
                   </div>
 
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                      Role
-                    </p>
-
-                    <span className="inline-flex rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600">
-                      ADMIN
-                    </span>
-                  </div>
+                  
                 </div>
               </div>
 
@@ -79,17 +71,17 @@ export default async function AdminLayout({
                 <div className="space-y-2">
                   
                   <Link
-                    href="/admin/products"
-                    className="block rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#0F2747]"
-                  >
-                    Products
-                  </Link>
-
-                  <Link
                     href="/admin/categories"
                     className="block rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#0F2747]"
                   >
                     Categories
+                  </Link>
+
+                  <Link
+                    href="/admin/products"
+                    className="block rounded-lg px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-[#0F2747]"
+                  >
+                    Products
                   </Link>
 
                   <Link

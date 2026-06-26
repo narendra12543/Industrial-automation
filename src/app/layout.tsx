@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-
+import { prisma } from "@/lib/prisma";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { auth } from "@/lib/auth";
@@ -24,6 +24,26 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+  const categories = await prisma.category.findMany({
+    orderBy: {
+      name: "asc",
+    },
+    include: {
+      products: {
+        where: {
+          isActive: true,
+        },
+        select: {
+          id: true,
+          name: true,
+          slug: true,
+        },
+        orderBy: {
+          name: "asc",
+        },
+      },
+    },
+  });
 
   const isAuthenticated =
     !!session?.user;
@@ -41,10 +61,9 @@ export default async function RootLayout({
         className={`${inter.className} min-h-screen flex flex-col bg-white antialiased`}
       >
         <Header
-          isAuthenticated={
-            isAuthenticated
-          }
+          isAuthenticated={isAuthenticated}
           isAdmin={isAdmin}
+          categories={categories}
         />
 
         <main className="flex-1">

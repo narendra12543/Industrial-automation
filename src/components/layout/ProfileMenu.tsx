@@ -73,6 +73,7 @@ export default function ProfileMenu({
           text-white
           transition
           hover:scale-105
+          hidden lg:block
         "
       >
         👤

@@ -49,13 +49,7 @@ export default async function AdminDashboardPage() {
               </p>
             </div>
 
-            <div>
-              <p className="text-sm font-medium text-slate-500">Role</p>
-
-              <span className="mt-1 inline-flex rounded-full bg-orange-50 px-3 py-1 text-sm font-semibold text-orange-600">
-                {user.role}
-              </span>
-            </div>
+            
           </div>
         </div>
 
