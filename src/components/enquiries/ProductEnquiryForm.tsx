@@ -129,17 +129,8 @@ if (!isAuthenticated) {
   };
 
   return (
-    <div className="mt-12 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-[#0F2747]">
-          Request Quote
-        </h2>
-
-        <p className="mt-2 text-slate-600">
-          Submit your enquiry and our
-          team will contact you shortly.
-        </p>
-      </div>
+    <div className=" rounded-2xl border border-slate-200 bg-slate-100 p-8 shadow-lg">
+      
 
       {error && (
         <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">

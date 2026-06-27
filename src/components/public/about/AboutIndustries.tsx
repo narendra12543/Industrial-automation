@@ -1,72 +1,148 @@
+import Image from "next/image";
 import {
   Factory,
-  Package,
-  Car,
-  UtensilsCrossed,
-  Pill,
-  Droplets,
+  CheckCircle2,
 } from "lucide-react";
-
-const industries = [
-  {
-    title: "Manufacturing",
-    icon: Factory,
-  },
-  {
-    title: "Packaging",
-    icon: Package,
-  },
-  {
-    title: "Automotive",
-    icon: Car,
-  },
-  {
-    title: "Food Processing",
-    icon: UtensilsCrossed,
-  },
-  {
-    title: "Pharmaceuticals",
-    icon: Pill,
-  },
-  {
-    title: "Water Treatment",
-    icon: Droplets,
-  },
-];
 
 export default function AboutIndustries() {
   return (
-    <section className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-7xl px-4">
-        <h2 className="text-center text-3xl font-bold text-[#0F2747]">
-          Industries We Serve
-        </h2>
+    <section className="bg-white py-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {industries.map((industry) => (
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+
+          {/* Left Image */}
+
+          <div className="relative">
+
             <div
-              key={industry.title}
               className="
-                rounded-2xl
+                overflow-hidden
+                rounded-3xl
                 border
-                bg-white
-                p-8
-                text-center
-                transition
-                hover:shadow-lg
+                border-slate-200
+                bg-slate-100
+                shadow-xl
               "
             >
-              <industry.icon
-                size={42}
-                className="mx-auto text-orange-500"
-              />
+              <div className="relative h-[520px]">
 
-              <h3 className="mt-4 font-semibold text-[#0F2747]">
-                {industry.title}
-              </h3>
+                <Image
+                  src="/about-industries.jpg"
+                  alt="Industrial Automation"
+                  fill
+                  className="object-cover"
+                />
+
+              </div>
             </div>
-          ))}
+
+          </div>
+
+          {/* Right Content */}
+
+          <div>
+
+            <span
+              className="
+                inline-flex
+                rounded-full
+                bg-orange-50
+                px-4
+                py-2
+                text-sm
+                font-semibold
+                text-orange-700
+              "
+            >
+              Industries We Serve
+            </span>
+
+            <h2
+              className="
+                mt-5
+                text-3xl
+                font-bold
+                leading-tight
+                text-[#0F2747]
+              "
+            >
+              Automation Solutions For
+              Diverse Industrial Sectors
+            </h2>
+
+            <p
+              className="
+                text-md
+                leading-8
+                text-slate-600
+              "
+            >
+              We provide complete industrial
+              automation solutions designed
+              to improve productivity,
+              operational efficiency and
+              workplace safety across
+              multiple industries.
+            </p>
+
+            <p
+              className="
+           
+                text-md
+                leading-8
+                text-slate-600
+              "
+            >
+              From PLC & SCADA systems,
+              Industrial Control Panels,
+              Gate Automation, Rolling
+              Shutters, Boom Barriers,
+              Automatic Doors and customized
+              engineering solutions, our
+              products are trusted by
+              businesses throughout India.
+            </p>
+
+            {/* Industries */}
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+
+              {[
+                "Manufacturing Plants",
+                "Warehouses & Logistics",
+                "Commercial Buildings",
+                "Automotive Industry",
+                "Food Processing",
+                "Pharmaceutical Industry",
+                "Water Treatment Plants",
+                "Infrastructure Projects",
+              ].map((industry) => (
+
+                <div
+                  key={industry}
+                  className="flex items-center gap-3"
+                >
+
+                  <CheckCircle2
+                    size={20}
+                    className="text-green-600"
+                  />
+
+                  <span className="font-medium text-slate-700">
+                    {industry}
+                  </span>
+
+                </div>
+
+              ))}
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
     </section>
   );

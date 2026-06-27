@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 
 import ProductsHero from "@/components/public/products/ProductsHero";
-import FeaturedProductsStrip from "@/components/public/products/FeaturedProductsStrip";
 import ProductsCatalog from "@/components/public/products/ProductsCatalog";
 import ProductsCTA from "@/components/public/products/ProductsCTA";
 
@@ -50,6 +49,7 @@ export default async function ProductsPage() {
 
   return (
     <>
+    
       <ProductsHero
         totalProducts={
           products.length

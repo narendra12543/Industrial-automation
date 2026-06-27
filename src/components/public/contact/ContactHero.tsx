@@ -1,6 +1,9 @@
 export default function ContactHero() {
   return (
+    
     <section >
+      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-blue-100 blur-3xl" />
+      
       <div className="mx-auto max-w-7xl px-4 py-4">
         <h1 className="text-3xl font-bold text-[#0F2747]">
           Contact Us

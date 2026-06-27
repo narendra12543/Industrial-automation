@@ -34,7 +34,7 @@ const trustItems = [
 
 export default function TrustSection() {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-8 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#0F2747]">

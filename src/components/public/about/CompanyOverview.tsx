@@ -1,26 +1,11 @@
 export default function CompanyOverview() {
   return (
-    <section className="py-20">
+    <section className="py-8">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid gap-8 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-2 items-center">
+          
           <div className="rounded-2xl border p-8">
-            <h3 className="mb-4 text-xl font-bold text-[#0F2747]">
-              Company Introduction
-            </h3>
-
-            <p className="text-slate-600">
-              We provide industrial
-              automation solutions,
-              entrance automation,
-              control systems and
-              engineering services for
-              businesses seeking reliable
-              automation technology.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border p-8">
-            <h3 className="mb-4 text-xl font-bold text-[#0F2747]">
+            <h3 className="mb-4 text-2xl font-bold text-[#0F2747]">
               Our Mission
             </h3>
 
@@ -34,7 +19,7 @@ export default function CompanyOverview() {
           </div>
 
           <div className="rounded-2xl border p-8">
-            <h3 className="mb-4 text-xl font-bold text-[#0F2747]">
+            <h3 className="mb-4 text-2xl font-bold text-[#0F2747]">
               Our Vision
             </h3>
 

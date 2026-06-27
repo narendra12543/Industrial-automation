@@ -12,6 +12,9 @@ export default function ProductsHero({
 }: ProductsHeroProps) {
   return (
     <section className="relative overflow-hidden bg-slate-50 py-8">
+      <div className="absolute -top-20 left-0 h-72 w-72 rounded-full bg-orange-100 blur-3xl" />
+      <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-blue-100 blur-3xl" />
+
       <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="
@@ -25,11 +28,11 @@ export default function ProductsHero({
 
       <div className="relative mx-auto max-w-7xl px-4">
       
-        <h1 className="text-4xl font-bold text-[#0F2747] md:text-5xl">
+        <h1 className="text-3xl font-bold text-[#0F2747] md:text-3xl">
           Industrial Automation Products
         </h1>
 
-        <p className="mt- max-w-3xl text-lg text-slate-600">
+        <p className="mt-2 max-w-2xl text-md text-slate-600">
           Explore our complete range of
           industrial automation products,
           gate automation systems,

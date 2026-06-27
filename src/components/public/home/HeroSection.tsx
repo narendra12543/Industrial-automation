@@ -7,7 +7,6 @@ ShieldCheck,
 Headphones,
 Settings,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
 export default function HeroSection() {
 return ( <section className="relative overflow-hidden bg-white">
 {/* Background Pattern */}
@@ -17,7 +16,6 @@ return ( <section className="relative overflow-hidden bg-white">
       className="
         h-full
         w-full
-        bg-[linear-gradient(to_right,#0F2747_1px,transparent_1px),linear-gradient(to_bottom,#0F2747_1px,transparent_1px)]
         bg-[size:60px_60px]
       "
     />
@@ -42,7 +40,6 @@ return ( <section className="relative overflow-hidden bg-white">
             bg-orange-50
             px-4
             py-2
-           
             text-sm
             font-medium
             text-orange-700
@@ -53,8 +50,8 @@ return ( <section className="relative overflow-hidden bg-white">
 
         <h1
           className="
-            mt-6
-            text-4xl
+            mt-4  
+            text-3xl
             font-bold
             leading-tight
             text-[#0F2747]
@@ -70,47 +67,61 @@ return ( <section className="relative overflow-hidden bg-white">
 
         <h2
           className="
-            mt-6
+            mt-2
             max-w-2xl
-            text-lg
+            text-md
             leading-8
             text-slate-600
           "
         >
-          Delivering reliable industrial
-          automation systems, control
-          panels, PLC solutions, SCADA
-          systems, drives, sensors and
-          engineering services for modern
-          industries.
+          We specialize in delivering advanced industrial automation solutions
+          for manufacturing plants, warehouses, commercial facilities and
+          infrastructure projects. Our expertise includes PLC & SCADA systems,
+          electrical control panels, industrial IoT integration, sensors,
+          automation drives, gate automation, boom barriers, rolling shutters,
+          access control systems and customized engineering services. With a
+          strong focus on quality, innovation and customer satisfaction, we help
+          businesses achieve safer operations, higher productivity and long-term
+          operational excellence.
         </h2>
 
         {/* CTA */}
 
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+        <div className="mt-4 flex flex-col gap-4 sm:flex-row">
           
           <Link
             href="/products"
             className="
+              group
               inline-flex
               items-center
               justify-center
               rounded-xl
               border
-              border-slate-300
+              border-[#0F2747]
+              bg-white
               px-6
-              py-4
+              py-3
               font-semibold
-              text-slate-700
-              transition
-              hover:border-[#0F2747]
-              hover:text-[#0F2747]
+              text-[#0F2747]
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:bg-[#0F2747]
+              hover:text-white
+              hover:shadow-xl
             "
           >
             Explore Products
+
             <ArrowRight
               size={18}
-              className="ml-2"
+              className="
+                ml-2
+                transition-transform
+                duration-300
+                group-hover:translate-x-2
+              "
             />
           </Link>
           
@@ -118,7 +129,7 @@ return ( <section className="relative overflow-hidden bg-white">
 
         {/* Trust Points */}
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="flex items-center gap-3">
             <CheckCircle2
               size={18}
@@ -166,7 +177,7 @@ return ( <section className="relative overflow-hidden bg-white">
       <div className="hidden lg:block">
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
           {/* Header */}
-
+          
           <div className="bg-[#1b3558] p-6 text-white">
             <h3 className="text-2xl font-bold">
               Need Assistance?
@@ -268,21 +279,12 @@ return ( <section className="relative overflow-hidden bg-white">
               >
                 Request Quote
               </Link>
-
-              
-
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    {/* Statistics Strip */}
-
-    
+    </div>    
   </div>
 </section>
-
-
 );
 }

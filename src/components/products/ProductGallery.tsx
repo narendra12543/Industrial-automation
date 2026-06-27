@@ -60,7 +60,7 @@ const goNext = () => {
 
   if (!selectedImage) {
     return (
-      <div className="flex h-[500px] items-center justify-center rounded-2xl border border-slate-200 bg-white">
+      <div className="flex h-[350px] items-center justify-center rounded-2xl border border-slate-200 bg-white">
         <p className="text-slate-500">
           No Images Available
         </p>
@@ -75,7 +75,7 @@ const goNext = () => {
           onClick={() =>
             setLightboxOpen(true)
           }
-          className="relative h-[500px] cursor-zoom-in overflow-hidden rounded-2xl border border-slate-200 bg-white"
+          className="relative h-[350px] cursor-zoom-in overflow-hidden rounded-2xl border border-slate-200 bg-white"
         >
         <Image
           src={selectedImage.imageUrl}

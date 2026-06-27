@@ -64,10 +64,12 @@ export default function Header({
           top-0
           z-50
           border-b
-          border-slate-200/70
-          bg-white/90
-          backdrop-blur-xl
-          shadow-[0_4px_20px_rgba(15,39,71,0.06)]
+          border-[#D9E3EF]
+          bg-gradient-to-r
+          from-[#F7F9FC]
+          via-[#FFFFFF]
+          to-[#EEF4FA]
+          shadow-[0_8px_25px_rgba(15,39,71,0.08)]
         "
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -133,6 +135,11 @@ export default function Header({
                 Home
               </Link>
 
+              <ProductMegaMenu
+                categories={categories}
+                open={megaMenuOpen}
+                setOpen={setMegaMenuOpen}
+              />
               <Link
                 href="/about"
                 className="
@@ -150,12 +157,6 @@ export default function Header({
               >
                 About
               </Link>
-
-              <ProductMegaMenu
-                categories={categories}
-                open={megaMenuOpen}
-                setOpen={setMegaMenuOpen}
-              />
 
               <Link
                 href="/contact"
@@ -177,7 +178,7 @@ export default function Header({
             </nav>
             {/* Right Side */}
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {/* Search */}
 
               <button

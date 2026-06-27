@@ -32,9 +32,9 @@ model Category {
   name        String    @unique @db.VarChar(150)
   slug        String    @unique @db.VarChar(180)
   description String?
+  isActive    Boolean   @default(true)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  isActive    Boolean   @default(true)
   products    Product[]
 
   @@index([slug])
@@ -53,14 +53,14 @@ model Product {
   specifications   Json?
   features         Json?
   applications     Json?
-  brochureUrl      String?
   datasheetUrl     String?
+  datasheetFile    String?
+  brochureUrl      String?
+  brochureFile     String?
   featured         Boolean        @default(false)
   isActive         Boolean        @default(true)
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
-  brochureFile     String?
-  datasheetFile    String?
   downloads        Download[]
   enquiries        Enquiry[]
   images           ProductImage[]
@@ -75,16 +75,16 @@ model Product {
 }
 
 model ProductImage {
-  id        String   @id @default(cuid())
-  productId String
-  imageUrl  String
+  id                 String   @id @default(cuid())
+  productId          String
+  imageUrl           String
+  sortOrder          Int      @default(0)
+  isPrimary          Boolean  @default(false)
+  altText            String?  @db.VarChar(255)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
   cloudinaryPublicId String?
-  sortOrder Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  altText   String?  @db.VarChar(255)
-  isPrimary Boolean  @default(false)
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product            Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@index([productId])
   @@index([sortOrder])

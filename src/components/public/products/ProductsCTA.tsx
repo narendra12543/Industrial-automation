@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function ProductsCTA() {
   return (
-    <section className="py-16">
-      <div className="mx-auto max-w-7xl px-4">
+    <section className="py-6">
+      <div className="mx-auto max-w-4xl px-4">
         <div
           className="
             rounded-3xl
@@ -14,7 +14,7 @@ export default function ProductsCTA() {
             text-white
           "
         >
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-2xl font-bold">
             Need Help Choosing A Product?
           </h2>
 

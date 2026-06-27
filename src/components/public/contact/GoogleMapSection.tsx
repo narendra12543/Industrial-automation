@@ -1,6 +1,6 @@
 export default function GoogleMapSection() {
   return (
-    <section className="py-16">
+    <section>
       <div className="mx-auto max-w-7xl px-4">
 
         <div className="overflow-hidden rounded-3xl border bg-white shadow-sm">

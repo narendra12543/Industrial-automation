@@ -44,9 +44,9 @@ export default function ApplicationsSection({
   ];
 
   return (
-    <section className="mt-12">
+    <section className="mt-8">
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-[#0F2747]">
+        <h2 className="text-2xl font-bold text-[#0F2747]">
           Applications
         </h2>
 

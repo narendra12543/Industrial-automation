@@ -40,8 +40,8 @@ export default function SpecificationsSection({
   }
 
   return (
-    <section className="mt-12">
-      <h2 className="mb-6 text-3xl font-bold text-[#0F2747]">
+    <section className="mt-8">
+      <h2 className="mb-6 text-2xl font-bold text-[#0F2747]">
         Technical Specifications
       </h2>
 

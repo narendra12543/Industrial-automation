@@ -9,7 +9,7 @@ import {
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-6">
+    <section className="relative overflow-hidden bg-slate-50 py-4">
       {/* Background */}
 
       <div className="absolute inset-0 opacity-[0.03]">
@@ -17,11 +17,13 @@ export default function AboutHero() {
           className="
             h-full
             w-full
-            bg-[linear-gradient(to_right,#0F2747_1px,transparent_1px),linear-gradient(to_bottom,#0F2747_1px,transparent_1px)]
             bg-[size:60px_60px]
           "
         />
       </div>
+       <div className="absolute -top-20 left-0 h-72 w-72 rounded-full bg-orange-100 blur-3xl" />
+       <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-blue-200 blur-3xl" />
+
 
       <div className="relative mx-auto max-w-7xl px-4">
         {/* Breadcrumb */}
@@ -30,7 +32,7 @@ export default function AboutHero() {
         <div className="grid items-center gap-6 lg:grid-cols-2">
           {/* Left */}
 
-          <div>
+          <div className="pt-0.5">
             <div
               className="
                 inline-flex
@@ -48,11 +50,11 @@ export default function AboutHero() {
               Industrial Automation Experts
             </div>
 
-            <h1 className="mt-6 text-4xl font-bold text-[#0F2747] md:text-5xl">
+            <h1 className="mt-4  text-2xl font-bold text-[#0F2747] md:text-3xl">
               About Our Company
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-slate-600">
+            <p className="mt-2 text-md leading-8 text-slate-600">
               Delivering reliable industrial automation
               solutions and engineering excellence for
               modern industries. We specialize in
@@ -63,7 +65,7 @@ export default function AboutHero() {
               safety and productivity.
             </p>
 
-            <p className="mt-4 text-slate-600">
+            <p className="mt-2 text-md text-slate-600">
               Our goal is to provide dependable,
               cost-effective and future-ready
               automation solutions that help

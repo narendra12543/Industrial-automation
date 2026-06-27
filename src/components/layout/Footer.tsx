@@ -9,8 +9,8 @@ import {
 export default function Footer() {
   return (
     <footer className="bg-[#0F2747] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-10">
-        <div className="grid gap-8 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-2">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 pt-2">
           {/* Company */}
 
           <div>
@@ -50,34 +50,25 @@ export default function Footer() {
               for modern industries.
             </p>
 
-            <a
-              href="https://wa.me/917057748540"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                mt-5
-                inline-flex
-                items-center
-                rounded-lg
-                bg-orange-500
-                px-4
-                py-2
-                text-sm
-                font-medium
-                text-white
-                transition
-                hover:bg-orange-600
-              "
-            >
-              Chat on WhatsApp
-
-              <ArrowRight
-                size={16}
-                className="ml-2"
-              />
-            </a>
+            
           </div>
 
+        {/* Products */}
+
+          <div>
+            <h3 className="mb-4 font-semibold">
+              Solutions
+            </h3>
+
+            <div className="space-y-2 text-sm text-slate-300">
+              <p>Automatic Monitoring</p>
+              <p>Automatic Doors</p>
+              <p>Gate Automation</p>
+              <p>Boom Barriers</p>
+              <p>Rolling Shutters</p>
+              
+            </div>
+          </div>
           {/* Quick Links */}
 
           <div>
@@ -90,7 +81,8 @@ export default function Footer() {
                 href="/"
                 className="block text-sm text-slate-300 transition hover:text-white"
               >
-                Home
+                
+                
               </Link>
 
               <Link
@@ -123,22 +115,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Products */}
-
-          <div>
-            <h3 className="mb-4 font-semibold">
-              Solutions
-            </h3>
-
-            <div className="space-y-2 text-sm text-slate-300">
-              <p>Automatic Monitoring</p>
-              <p>Automatic Doors</p>
-              <p>Gate Automation</p>
-              <p>Boom Barriers</p>
-              <p>Rolling Shutters</p>
-              
-            </div>
-          </div>
 
           {/* Contact */}
 
@@ -172,16 +148,42 @@ export default function Footer() {
                   India
                 </span>
               </div>
+              <a
+              href="https://wa.me/917057748540"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                mt-4
+                inline-flex
+                items-center
+                rounded-lg
+                bg-orange-500
+                px-4
+                py-2
+                text-sm
+                font-medium
+                text-white
+                transition
+                hover:bg-orange-600
+              "
+            >
+              Chat on WhatsApp
+
+              <ArrowRight
+                size={16}
+                className="ml-2"
+              />
+            </a>
             </div>
           </div>
         </div>
 
         <div
           className="
-            mt-8
+            mt-2
             border-t
             border-slate-700
-            pt-4
+            pt-3
             text-center
             text-xs
             text-slate-400
