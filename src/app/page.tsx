@@ -1,16 +1,18 @@
 import HeroSection from "@/components/public/home/HeroSection";
-import TrustSection from "@/components/public/home/TrustSection";
+import AboutSection from "@/components/public/home/AboutSection";
 import FeaturedProductsSection from "@/components/public/home/FeaturedProductsSection";
 import StatisticsSection from "@/components/public/home/StatisticsSection";
+import SolutionsSwiper from "@/components/public/home/SolutionsSwiper";
 
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <SolutionsSwiper/>
+      {/* <HeroSection /> */}
       <FeaturedProductsSection />
-      <TrustSection />
-      <StatisticsSection />
+      <AboutSection />
+      {/* <StatisticsSection /> */}
     </>
   );
 }

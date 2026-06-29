@@ -31,15 +31,6 @@ export default function ProductsHero({
         <h1 className="text-3xl font-bold text-[#0F2747] md:text-3xl">
           Industrial Automation Products
         </h1>
-
-        <p className="mt-2 max-w-2xl text-md text-slate-600">
-          Explore our complete range of
-          industrial automation products,
-          gate automation systems,
-          boom barriers, rolling shutters,
-          control systems and engineering
-          solutions.
-        </p>
         
       </div>
     </section>

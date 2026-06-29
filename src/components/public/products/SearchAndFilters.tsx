@@ -98,7 +98,9 @@ export default function SearchAndFilters({
               text-[#0F2747]
               outline-none
               transition
-              
+              focus:border-[#0F2747]
+              focus:ring-2
+              focus:ring-[#0F2747]/20
               
             "
           >

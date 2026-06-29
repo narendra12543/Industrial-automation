@@ -63,93 +63,219 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-      <h2 className="mb-2 text-3xl font-bold text-[#0F2747]">Get Quote.</h2>
+    <div
+      className="
+      rounded-2xl
+      border
+      border-slate-200
+      bg-white/90
+      p-6
+      shadow-lg
+      backdrop-blur-sm
+    "
+    >
+      {/* Header */}
 
-      <p className="mb-6 text-slate-600">
-        Our automation experts will contact you shortly.
-      </p>
+      <div className="mb-5">
+        <span
+          className="
+          inline-flex
+          rounded-full
+          bg-orange-100
+          px-3
+          py-1
+          text-xs
+          font-semibold
+          text-orange-600
+        "
+        >
+          Quick Enquiry, our experts will contact you shortly.
+        </span>
+
+        <h2 className="mt-2 text-2xl font-bold text-[#0F2747]">
+          Request a Quote
+        </h2>
+
+       
+      </div>
+
+      {/* Alerts */}
 
       {error && (
-        <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+        <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-600">
           {error}
         </div>
       )}
 
       {success && (
-        <div className="mb-5 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+        <div className="mb-4 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
           {success}
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <input
-          type="text"
-          placeholder="Name *"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-[#0F2747]"
-        />
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Name + Email */}
 
-        <input
-          type="email"
-          placeholder="Email *"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-[#0F2747]"
-        />
+        <div className="grid gap-4 md:grid-cols-2">
+          <input
+            type="text"
+            placeholder="Full Name *"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className="
+            rounded-xl
+            border
+            border-slate-300
+            px-4
+            py-3
+            text-sm
+            outline-none
+            transition
+            focus:border-[#0F2747]
+            focus:ring-2
+            focus:ring-blue-100
+          "
+          />
 
-        <input
-          type="text"
-          placeholder="Mobile *"
-          value={mobile}
-          onChange={(e) => setMobile(e.target.value)}
-          required
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-[#0F2747]"
-        />
+          <input
+            type="email"
+            placeholder="Email Address *"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="
+            rounded-xl
+            border
+            border-slate-300
+            px-4
+            py-3
+            text-sm
+            outline-none
+            transition
+            focus:border-[#0F2747]
+            focus:ring-2
+            focus:ring-blue-100
+          "
+          />
+        </div>
 
-        <input
-          type="text"
-          placeholder="Company Name"
-          value={companyName}
-          onChange={(e) => setCompanyName(e.target.value)}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-[#0F2747]"
-        />
+        {/* Mobile + Company */}
+
+        <div className="grid gap-4 md:grid-cols-2">
+          <input
+            type="text"
+            placeholder="Mobile Number *"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+            required
+            className="
+            rounded-xl
+            border
+            border-slate-300
+            px-4
+            py-3
+            text-sm
+            outline-none
+            transition
+            focus:border-[#0F2747]
+            focus:ring-2
+            focus:ring-blue-100
+          "
+          />
+
+          <input
+            type="text"
+            placeholder="Company Name"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            className="
+            rounded-xl
+            border
+            border-slate-300
+            px-4
+            py-3
+            text-sm
+            outline-none
+            transition
+            focus:border-[#0F2747]
+            focus:ring-2
+            focus:ring-blue-100
+          "
+          />
+        </div>
+
+        {/* City */}
 
         <input
           type="text"
           placeholder="City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-[#0F2747]"
+          className="
+          w-full
+          rounded-xl
+          border
+          border-slate-300
+          px-4
+          py-3
+          text-sm
+          outline-none
+          transition
+          focus:border-[#0F2747]
+          focus:ring-2
+          focus:ring-blue-100
+        "
         />
 
+        {/* Message */}
         <textarea
-          rows={5}
+          rows={4}
           placeholder="Message *"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-[#0F2747]"
+          className="
+          w-full
+          rounded-xl
+          border
+          border-slate-300
+          px-4
+          py-2
+          text-sm
+          leading-6
+          outline-none
+          transition
+          resize-none
+          focus:border-[#0F2747]
+          focus:ring-2
+          focus:ring-blue-100
+        "
         />
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        {/* Action Buttons */}
+
+        <div className="grid gap-3 sm:grid-cols-2">
           <button
             type="submit"
             disabled={loading}
             className="
-          rounded-xl
-          bg-[#0F2747]
-          px-6
-          py-3
-          font-medium
-          text-white
-          transition
-          hover:bg-[#173865]
-          disabled:opacity-60
-        "
+            rounded-xl
+            bg-[#0F2747]
+            px-5
+            py-3
+            text-sm
+            font-semibold
+            text-white
+            shadow-md
+            transition-all
+            duration-300
+            hover:-translate-y-0.5
+            hover:bg-[#173865]
+            hover:shadow-lg
+            disabled:cursor-not-allowed
+            disabled:opacity-60
+          "
           >
             {loading ? "Submitting..." : "Send Message"}
           </button>
@@ -159,16 +285,23 @@ export default function ContactForm() {
             target="_blank"
             rel="noopener noreferrer"
             className="
-          rounded-xl
-          bg-[#0F2747]  
-          px-6
-          py-3
-          text-center
-          font-medium
-          text-white
-          transition
-          hover:bg-[#173865]
-        "
+            rounded-xl
+            border
+            border-green-600
+            bg-green-50
+            px-5
+            py-3
+            text-center
+            text-sm
+            font-semibold
+            text-green-700
+            transition-all
+            duration-300
+            hover:-translate-y-0.5
+            hover:bg-green-400
+            hover:text-white
+            hover:shadow-lg
+          "
           >
             WhatsApp Us
           </a>

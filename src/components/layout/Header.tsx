@@ -5,7 +5,10 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { LayoutGrid } from "lucide-react";
+import { useEffect } from "react";
+import { FileText } from "lucide-react";
 
+import TopInfoBar from "./TopInfoBar";
 import ProductSearchModal from "@/components/search/ProductSearchModal";
 
 import MobileNavigation from "./MobileNavigation";
@@ -37,9 +40,20 @@ export default function Header({
   const [searchOpen, setSearchOpen] = useState(false);
 
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [showTopBar, setShowTopBar] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowTopBar(window.scrollY < 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
+      <TopInfoBar show={showTopBar} />
       {megaMenuOpen && (
         <div
           onMouseEnter={() => setMegaMenuOpen(true)}
@@ -64,11 +78,12 @@ export default function Header({
           top-0
           z-50
           border-b
-          border-[#D9E3EF]
+          border-[#D9E2EE]
           bg-gradient-to-r
-          from-[#F7F9FC]
-          via-[#FFFFFF]
-          to-[#EEF4FA]
+          from-[#FFF8F1]
+          via-white
+          to-[#EEF6FF]
+          backdrop-blur-xl
           shadow-[0_8px_25px_rgba(15,39,71,0.08)]
         "
       >
@@ -117,7 +132,7 @@ export default function Header({
             {/* Desktop Navigation */}
 
             <nav className="hidden items-center gap-3 lg:flex">
-              <Link
+              {/* <Link
                 href="/"
                 className="
                   rounded-xl
@@ -133,14 +148,14 @@ export default function Header({
                 "
               >
                 Home
-              </Link>
+              </Link> */}
 
               <ProductMegaMenu
                 categories={categories}
                 open={megaMenuOpen}
                 setOpen={setMegaMenuOpen}
               />
-              <Link
+              {/* <Link
                 href="/about"
                 className="
                   rounded-xl
@@ -156,16 +171,17 @@ export default function Header({
                 "
               >
                 About
-              </Link>
+              </Link> */}
 
               <Link
                 href="/contact"
                 className="
                   rounded-xl
+                  underline
                   px-5
                   py-2.5
                   font-medium
-                  text-slate-700
+                  text-[#0F2747]
                   transition-all
                   duration-300
                   hover:bg-[#0F2747]
@@ -173,37 +189,42 @@ export default function Header({
                   hover:shadow-md
                 "
               >
-                Contact
+                Contact Us
               </Link>
             </nav>
             {/* Right Side */}
 
             <div className="flex items-center gap-4">
-              {/* Search */}
-
-              <button
-                onClick={() => setSearchOpen(true)}
+              {/* Catalogue */}
+              <a
+                href="#"
+                // /catalog/Industrial-Automation-Catalog.pdf
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   hidden
-                  lg:flex
-                  h-10
-                  w-10
+                  lg:inline-flex
                   items-center
-                  justify-center
+                  gap-2
                   rounded-xl
-                  border
-                  border-slate-200
-                  bg-white
-                  text-slate-600
-                  shadow-sm
+                  bg-gradient-to-r
+                  from-orange-300
+                  to-[#173967]
+                  px-5
+                  py-2.5
+                  font-semibold
+                  text-white
+                  shadow-lg
                   transition-all
                   duration-300
-                  hover:shadow-md
+                  hover:-translate-y-1
+                  hover:scale-105
+                  hover:shadow-xl
                 "
               >
-                <Search size={18} />
-              </button>
-
+                <FileText size={18} />
+                Catalogue
+              </a>
               {/* WhatsApp */}
 
               <a
@@ -266,6 +287,7 @@ export default function Header({
               <div
                 className="
                   rounded-xl
+                  hidden lg:block
                   border
                   border-slate-200
                   bg-white
@@ -278,6 +300,38 @@ export default function Header({
                   isAdmin={isAdmin}
                 />
               </div>
+              {/* Mobile Catalogue */}
+              <a
+                href="#" 
+                // /catalog/Industrial-Automation-Catalog.pdf
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  lg:hidden
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-xl
+                  bg-gradient-to-r
+                  from-orange-300
+                  to-[#173967]
+                  px-4
+                  py-2.5
+                  font-semibold
+                  text-white
+                  shadow-lg
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:scale-105
+                  hover:shadow-xl
+                  active:scale-95
+                "
+              >
+                <FileText size={18} />
+
+                <span className="text-sm">Catalogue</span>
+              </a>
 
               {/* Mobile Menu */}
 

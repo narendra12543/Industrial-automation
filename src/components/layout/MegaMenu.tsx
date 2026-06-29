@@ -36,14 +36,15 @@ export default function ProductMegaMenu({
         className="
           flex
           items-center
+          underline
           gap-1
           font-medium
-          text-slate-700
+          text-[#0F2747]
           transition
           hover:text-[#0F2747]
         "
       >
-        Products
+        Explore Products
       </Link>
 
       {/* Mega Menu */}
@@ -53,7 +54,7 @@ export default function ProductMegaMenu({
           absolute
           top-full
           left-1/2
-          -translate-x-[49%]
+          -translate-x-[43%]
           mt-5
           w-[1150px]
           overflow-hidden
@@ -111,6 +112,7 @@ export default function ProductMegaMenu({
                       text-[#0F2747]
                       transition-colors
                       duration-300
+                      hover:underline
                     "
                   >
                     {category.name}
@@ -123,6 +125,7 @@ export default function ProductMegaMenu({
                       transition-all
                       duration-300
                       group-hover:w-full
+                      
                     "
                   />
                 </Link>
@@ -138,7 +141,7 @@ export default function ProductMegaMenu({
                       className="
                         flex
                         items-center
-                        gap-3
+                        gap-2
                         border-b
                         border-slate-200/70
                         py-1

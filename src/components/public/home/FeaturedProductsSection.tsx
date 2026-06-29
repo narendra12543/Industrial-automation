@@ -71,11 +71,6 @@ export default async function FeaturedProductsSection() {
               Our Most Popular Industrial Solutions
             </h2>
 
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Discover premium industrial automation products trusted by
-              manufacturing plants, commercial facilities and infrastructure
-              projects across various industries.
-            </p>
           </div>
 
           <Link

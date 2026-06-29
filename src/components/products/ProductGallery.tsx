@@ -75,7 +75,18 @@ const goNext = () => {
           onClick={() =>
             setLightboxOpen(true)
           }
-          className="relative h-[350px] cursor-zoom-in overflow-hidden rounded-2xl border border-slate-200 bg-white"
+           className="
+            relative
+            h-[420px]
+            overflow-hidden
+            rounded-2xl
+            border
+            border-slate-200
+            bg-white
+            flex
+            items-center
+            justify-center
+          "
         >
         <Image
           src={selectedImage.imageUrl}
@@ -84,7 +95,7 @@ const goNext = () => {
             "Product Image"
           }
           fill
-          className="object-cover"
+          className="object-contain p-6"
         />
       </div>
 

@@ -1,16 +1,91 @@
+import {
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+
 export default function GoogleMapSection() {
   return (
     <section>
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="space-y-5">
 
-        <div className="overflow-hidden rounded-3xl border bg-white shadow-sm">
+        {/* Contact Cards */}
 
-          <div className="h-[450px] bg-slate-100 flex items-center justify-center">
+        {/* Contact Cards */}
 
-            <span className="text-slate-500">
-              Google Maps Placeholder
-            </span>
+<div className="grid grid-cols-3 gap-3">
 
+  {/* Call */}
+
+  <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:shadow-md">
+    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0F2747] text-white">
+      <Phone size={20} />
+    </div>
+
+    <h3 className="text-sm font-semibold text-[#0F2747]">
+      Call
+    </h3>
+
+    <p className="mt-2 text-xs font-medium leading-5 text-slate-600">
+      +91 7057748540
+    </p>
+  </div>
+
+  {/* Email */}
+
+  <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:shadow-md">
+    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0F2747] text-white">
+      <Mail size={20} />
+    </div>
+
+    <h3 className="text-sm font-semibold text-[#0F2747]">
+      Email
+    </h3>
+
+    <p className="mt-2 break-all text-xs leading-5 text-slate-600">
+      info@company.com
+    </p>
+  </div>
+
+  {/* Address */}
+
+  <div className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:shadow-md">
+    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0F2747] text-white">
+      <MapPin size={20} />
+    </div>
+
+    <h3 className="text-sm font-semibold text-[#0F2747]">
+      Address
+    </h3>
+
+    <p className="mt-2 text-xs leading-5 text-slate-600">
+      Pune,
+      <br />
+      Maharashtra
+    </p>
+  </div>
+
+</div>
+
+        {/* Google Map */}
+
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+
+          <div className="border-b border-slate-200 bg-[#0F2747] px-5 py-3">
+            <h3 className="font-semibold text-white">
+              Find Us On Google Maps
+            </h3>
+          </div>
+
+          <div className="h-[260px]">
+            <iframe
+              title="Google Map"
+              src="https://www.google.com/maps?q=Pune,Maharashtra&output=embed"
+              width="100%"
+              height="100%"
+              loading="lazy"
+              className="border-0"
+            />
           </div>
 
         </div>

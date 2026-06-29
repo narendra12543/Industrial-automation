@@ -52,7 +52,18 @@ export default function FeaturedProductCard({
     >
       {/* Image */}
 
-      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+      <div
+        className="
+          relative
+          aspect-[4/3]
+          overflow-hidden
+          rounded-t-3xl
+          bg-white
+          flex
+          items-center
+          justify-center
+        "
+      >
         <Image
           src={
             primaryImage?.imageUrl ??
@@ -64,38 +75,39 @@ export default function FeaturedProductCard({
           }
           fill
           className="
-            object-cover
+            object-contain
+            p-4
             transition-transform
             duration-500
-            group-hover:scale-110
+            group-hover:scale-105
           "
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-        {product.featured && (
-          <div
-            className="
-              absolute
-              left-1
-              top-2
-              flex
-              items-center
-              gap-1
-              rounded-full
-              bg-gray-500
-              px-3
-              py-1
-              text-xs
-              font-semibold
-              text-white
-              shadow-lg
-            "
-          >
-            <Star size={12} fill="white" />
-            Featured
-          </div>
-        )}
+          {/* {product.featured && (
+            <div
+              className="
+                absolute
+                left-1
+                top-2
+                flex
+                items-center
+                gap-1
+                rounded-full
+                bg-gray-500
+                px-3
+                py-1
+                text-xs
+                font-semibold
+                text-white
+                shadow-lg
+              "
+            >
+              <Star size={12} fill="white" />
+              Featured
+            </div>
+          )} */}
 
         
       </div>
