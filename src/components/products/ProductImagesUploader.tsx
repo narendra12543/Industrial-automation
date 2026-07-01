@@ -63,7 +63,7 @@ export default function ProductImagesUploader({
 
       if (file.size > MAX_FILE_SIZE) {
         setError(
-          "File exceeds 10MB limit."
+          "File exceeds 5MB limit."
         );
         continue;
       }
